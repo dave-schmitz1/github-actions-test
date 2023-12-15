@@ -25,14 +25,15 @@ jobs:
 
       - name: Comment on New PRs
         uses: actions/github-script@v7
+        env:
+          TAG: "v${{ steps.gitversion.outputs.semVer }}"
         with:
           script: |
+            const { TAG } = process.env
             github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: "$tag",
-              name: "$tag",
+              tag_name: ${TAG},
+              name: ${TAG},
               generate_release_notes: true,
             });
-        env:
-          tag: "v${{ steps.gitversion.outputs.semVer }}"
