@@ -29,11 +29,11 @@ jobs:
           TAG: "v${{ steps.gitversion.outputs.semVer }}"
         with:
           script: |
-            const { TAG } = process.env
+            // const { TAG } = process.env
             github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: ${TAG},
-              name: ${TAG},
+              tag_name: "v${{ steps.gitversion.outputs.semVer }}",
+              name: "v${{ steps.gitversion.outputs.semVer }}",
               generate_release_notes: true,
             });
