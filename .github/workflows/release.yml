@@ -30,7 +30,7 @@ jobs:
             github.rest.issues.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: "$tag"
+              tag_name: "$tag",
               name: "$tag",
               generate_release_notes,
             });
