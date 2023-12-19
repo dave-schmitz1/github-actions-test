@@ -1,0 +1,17 @@
+name: Calling Reusable Workflows
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Input description"
+        type: string
+        default: "Dave"
+        required: false
+
+jobs:
+  calling-a-reusable-wf:
+    uses: dave-schmitz1/gha-workflows/.github/workflows/reusable.yml@main
+    with:
+      name: ${{ inputs.name }}
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN }}
