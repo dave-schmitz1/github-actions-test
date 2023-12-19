@@ -10,7 +10,7 @@ on:
 
 jobs:
   calling-a-reusable-wf:
-    uses: "dave-schmitz1/gha-workflows/.github/workflows/reusable.yml@main"
+    uses: ./.github/workflows/reusable.yml@main
     with:
       name: ${{ inputs.name }}
     secrets:
