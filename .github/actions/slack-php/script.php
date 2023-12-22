@@ -51,7 +51,7 @@ echo "::group::Slack Response\n";
 var_dump($response);
 echo "::endgroup::\n";
 
-if(!$response=>success) {
-    echo $response=>body;
+if(!$response->success) {
+    echo $response->body;
     exit(1);
 }
