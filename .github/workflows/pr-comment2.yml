@@ -7,6 +7,20 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: Format Step
+        id: fmt
+        run: echo format
+      - name: Init Step
+        id: init
+        run: echo init
+      - name: Validate Step
+        id: validate
+        run: |
+          echo validate
+          echo "stdout=$(echo validate)" >> "${GITHUB_OUTPUT}"
+      - name: Plan Step
+        id: plan
+        run: echo plan
       - name: Comment on New PRs
         uses: dave-schmitz1/javascript-action@main
         with:
