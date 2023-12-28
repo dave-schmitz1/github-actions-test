@@ -10,5 +10,5 @@ jobs:
       - name: Comment on New PRs
         uses: dave-schmitz1/javascript-action@main
         with:
-          message_body: "The Dude"
+          name: "The Dude"
           github_token: ${{ secrets.GITHUB_TOKEN }}
