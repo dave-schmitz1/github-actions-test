@@ -12,3 +12,4 @@ jobs:
         uses: dave-schmitz1/javascript-action@main
         with:
           message_body: "The Dude"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
