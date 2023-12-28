@@ -1,0 +1,14 @@
+name: Pull Request Comment
+on:
+  pull_request_target:
+    types: [opened]
+jobs:
+  pr-comment:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment on New PRs
+        uses: dave-schmitz1/javascript-action@main
+        with:
+          body: "The Dude"
