@@ -1,0 +1,24 @@
+name: Create Release Using Marketplace Actions
+on:
+  workflow_dispatch:
+    inputs:
+      tag_value:
+        description: The tag value include 'v' prefix
+        type: string
+        required: true
+        default: ""
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Checkout
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ inputs.tag_value }}
+          commit: ${{ github.sha }}
+          generateReleaseNotes: true
