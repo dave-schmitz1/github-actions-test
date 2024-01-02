@@ -21,6 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Check for Existing Release
+        continue-on-error: true
         id: check-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,7 +30,9 @@ jobs:
           --repo="$GITHUB_REPOSITORY"
 
       - name: Display Output of previous step
-        run: echo ${{ steps.check-release.outputs }}
+        run: |
+          echo ${{ steps.check-release.outputs }}
+          echo ${{ steps.check-release.outcome}}
       # - name: Create Release
       #   id: create-release
       #   uses: ncipollo/release-action@v1
