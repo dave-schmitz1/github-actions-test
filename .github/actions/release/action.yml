@@ -13,4 +13,6 @@ runs:
   steps:
     - name: Run Simple Shell Script
       shell: bash
-      run: ./release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}
+      run: |
+        ls -a
+        /release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}
