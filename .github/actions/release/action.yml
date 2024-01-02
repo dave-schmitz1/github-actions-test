@@ -12,6 +12,10 @@ runs:
   using: "composite"
   steps:
     - name: Run Simple Shell Script
+      id: checkTag
       shell: bash
       run: |
         .github/actions/release/release.sh ${{ inputs.tagValue }} ${{ inputs.repository }}
+    - name: Display Output
+      shell: bash
+      run: echo ${{ steps.checkTag.output.tagExists}}

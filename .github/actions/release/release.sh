@@ -6,9 +6,12 @@ echo "::debug::Repository $2"
 if gh release view $1 --repo=$2
 then
     echo "Release with tag $1 already exists in repository $2"
+    echo "tagExists=true" >> $GITHUB_OUTPUT
     exit 0
 else
     echo "Tag $1 was not found in repository $2"
+    echo "tagExists=false" >> $GITHUB_OUTPUT
+    exit 0
 fi
 
 if gh release create $1 \
