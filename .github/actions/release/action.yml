@@ -14,5 +14,4 @@ runs:
     - name: Run Simple Shell Script
       shell: bash
       run: |
-        ls -a
         .github/actions/release/release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}

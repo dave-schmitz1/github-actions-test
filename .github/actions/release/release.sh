@@ -10,4 +10,4 @@ else
     echo "Tag $1 was not found in repository $2"
 fi
 
-echo "End of script
+echo "End of script"
