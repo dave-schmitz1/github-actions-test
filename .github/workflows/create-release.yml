@@ -20,6 +20,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Use Release Action
+        uses: ./.github/workflows/release
+        with:
+          tag_value: ${{ inputs.tag_value }}
+          repository: $GITHUB_REPOSITORY
+
       - name: Check for Existing Release
         continue-on-error: true
         id: check-release

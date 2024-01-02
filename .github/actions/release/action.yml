@@ -1,0 +1,16 @@
+name: Create Release
+description: "Create release if one does not already exist."
+inputs:
+  tag_value:
+    description: The release tag value.
+    required: true
+  repository:
+    description: The repository release is in.
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Simple Shell Script
+      shell: bash
+      run: release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}
