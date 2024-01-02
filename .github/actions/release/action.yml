@@ -1,7 +1,7 @@
 name: Create Release
 description: "Create release if one does not already exist."
 inputs:
-  tag_value:
+  tagValue:
     description: The release tag value.
     required: true
   repository:
@@ -14,4 +14,4 @@ runs:
     - name: Run Simple Shell Script
       shell: bash
       run: |
-        .github/actions/release/release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}
+        .github/actions/release/release.sh ${{ inputs.tagValue }} ${{ inputs.repository }}
