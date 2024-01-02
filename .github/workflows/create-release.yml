@@ -24,7 +24,7 @@ jobs:
         uses: ./.github/actions/release
         with:
           tag_value: ${{ inputs.tag_value }}
-          repository: ${{ github.repository }}
+          repository: $GITHUB_REPOSITORY
 
       - name: Check for Existing Release
         continue-on-error: true
