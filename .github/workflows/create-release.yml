@@ -23,7 +23,7 @@ jobs:
       - name: Use Release Action
         uses: ./.github/actions/release
         with:
-          tag_value: ${{ inputs.tag_value }}
+          tagValue: ${{ inputs.tag_value }}
           repository: $GITHUB_REPOSITORY
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
