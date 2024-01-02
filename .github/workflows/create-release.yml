@@ -8,6 +8,9 @@ on:
         required: true
         default: ""
 
+permissions:
+  contents: write
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
@@ -19,6 +22,8 @@ jobs:
 
       - name: Check for Existing Release
         id: check-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release view ${{inputs.tag_value }} \
           --repo="$GITHUB_REPOSITORY"
