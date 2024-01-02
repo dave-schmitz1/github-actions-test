@@ -15,4 +15,4 @@ runs:
       shell: bash
       run: |
         ls -a
-        /release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}
+        .github/actions/release/release.sh ${{ inputs.tag_value }} ${{ inputs.repository }}
