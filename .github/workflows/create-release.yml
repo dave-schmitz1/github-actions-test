@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Use Release Action
-        uses: ./.github/workflows/release
+        uses: ./.github/actions/release
         with:
           tag_value: ${{ inputs.tag_value }}
           repository: $GITHUB_REPOSITORY
