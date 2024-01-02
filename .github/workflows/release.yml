@@ -22,18 +22,12 @@ jobs:
       - name: Determine Version
         id: gitversion # id to later be referenced
         uses: gittools/actions/gitversion/execute@v0
-
-      - name: Comment on New PRs
-        uses: actions/github-script@v7
+      - name: Create release
         env:
-          TAG: "v${{ steps.gitversion.outputs.semVer }}"
-        with:
-          script: |
-            // const { TAG } = process.env
-            github.rest.repos.createRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: "v${{ steps.gitversion.outputs.semVer }}",
-              name: "v${{ steps.gitversion.outputs.semVer }}",
-              generate_release_notes: true,
-            });
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: "v${{ steps.gitversion.outputs.semVer }}"
+        run: |
+          gh release create "$tag" \
+            --repo="$GITHUB_REPOSITORY" \
+            --title="${tag}" \
+            --generate-notes
