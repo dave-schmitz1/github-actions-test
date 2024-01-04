@@ -13,5 +13,11 @@ jobs:
           echo "::error title=Workflow Title::Workflow cannot be run on branches other than Main"
           ${{ job.status.failure }}
 
+      - name: Fail using script
+        uses: actions/github-script@v7
+        with:
+          script: |
+            core.setFailed('Release workflow can only be run on Main branch')
+
       - name: Verify Post Failure Skipped
         run: echo "Nope"
