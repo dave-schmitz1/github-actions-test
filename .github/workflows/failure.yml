@@ -11,4 +11,6 @@ jobs:
       - name: Fail
         run: |
           echo "::error title=Workflow Title::Workflow cannot be run on branches other than Main"
-          exit 1
+
+      - name: Verify Post Failure Skipped
+        run: echo "Nope"
