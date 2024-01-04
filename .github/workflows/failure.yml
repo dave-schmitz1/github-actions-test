@@ -1,0 +1,14 @@
+name: Failure Workflow
+on: push
+
+jobs:
+  failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple Echo Step
+        run: echo "Yo!"
+
+      - name: Fail
+        run: |
+          echo "::error title=Workflow Title::Workflow cannot be run on branches other than Main"
+          exit 1
