@@ -9,3 +9,5 @@ jobs:
       - run: echo $GITHUB_REF
       - run: |
           echo '{"string":"prod", "number":7, "option":"Option 2", "environment":"production"}' | gh workflow run manually-triggered.yml --json
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
