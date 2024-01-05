@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo '{"string":"prod", "number":7, "option":"Option 2", "environment":"production"}' | gh workflow run manually-triggered.yml --json
+          gh workflow run manually-triggered.yml echo -f string="prod" -f number=7 -f option="Option 2" -f environment="production"
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
