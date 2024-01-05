@@ -6,7 +6,7 @@ jobs:
   log-info:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GITHUB_REF
+      - uses: actions/checkout@v4
       - run: |
           echo '{"string":"prod", "number":7, "option":"Option 2", "environment":"production"}' | gh workflow run manually-triggered.yml --json
         env:
