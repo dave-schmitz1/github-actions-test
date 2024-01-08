@@ -20,7 +20,7 @@ jobs:
         run: echo "Yo!"
 
       - name: Fail using script
-        if: github.ref != 'refs/heads/main' && ${{ inputs.environment == 'prod' }}
+        if: ${{ github.ref != 'refs/heads/main' && inputs.environment == 'prod' }}
         uses: actions/github-script@v7
         with:
           script: core.setFailed('Release workflow can only be run on Main branch')
