@@ -1,0 +1,20 @@
+name: Environment File Test
+
+on: push
+
+jobs:
+  test-job:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject Variables
+        uses: lindluni/actions-variable-groups@v2
+        with:
+          org: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          groups: variables/set1.yml
+
+      - name: Print Environment
+        run: env | sort
