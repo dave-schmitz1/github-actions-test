@@ -19,7 +19,7 @@ jobs:
         uses: lindluni/actions-variable-groups@v2
         with:
           org: ${{ github.repository_owner }}
-          repo: ${{ github.repository }}
+          repo: ${{ github.event.repository.name }}
           groups: ./variables/set1.yml
           token: ${{ secrets.GITHUB_TOKEN }}
 
