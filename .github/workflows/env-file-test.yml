@@ -20,7 +20,7 @@ jobs:
         with:
           org: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
-          groups: ./variables/set1.yml
+          groups: variables
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print Environment
