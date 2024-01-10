@@ -2,6 +2,9 @@ name: Environment File Test
 
 on: push
 
+permissions:
+  contents: write
+
 jobs:
   test-job:
     name: Test
@@ -18,6 +21,7 @@ jobs:
           org: ${{ github.repository_owner }}
           repo: ${{ github.repository }}
           groups: ./variables/set1.yml
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print Environment
         run: env | sort
