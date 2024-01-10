@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Get File Paths
-        run: ls -A
+        run: ls -A -R
 
       - name: Inject Variables
         uses: lindluni/actions-variable-groups@v2
