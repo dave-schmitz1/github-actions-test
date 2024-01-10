@@ -17,7 +17,7 @@ jobs:
         with:
           org: ${{ github.repository_owner }}
           repo: ${{ github.repository }}
-          groups: variables/set1.yml
+          groups: ./variables/set1.yml
 
       - name: Print Environment
         run: env | sort
